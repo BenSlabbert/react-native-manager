@@ -12,6 +12,7 @@ class LoginForm extends Component {
                         placeholder='email@gmail.com'
                     />
                 </CardSection>
+
                 <CardSection>
                     <Input
                         secureTextEntry
@@ -19,6 +20,7 @@ class LoginForm extends Component {
                         placeholder='password'
                     />
                 </CardSection>
+
                 <CardSection>
                     <Button>
                         Login
