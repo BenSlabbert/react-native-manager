@@ -14,8 +14,7 @@ export default ( state = INITIAL_STATE, action ) => {
             // [action.payload.prop] = key interpolation
             return {
                 ...state,
-                [ action.payload.prop ]:
-                action.payload.value
+                [ action.payload.prop ]: action.payload.value
             };
 
         default:
