@@ -9,18 +9,18 @@ const RouterComponent = () => {
     return (
         <Router>
             <Scene key='root' hideNavBar={true}>
-                <Scene key='auth'>
-                    <Scene key='login' component={LoginForm} title='Login'/>
-                </Scene>
+                {/*<Scene key='auth'>*/}
+                {/*<Scene key='login' component={LoginForm} title='Login'/>*/}
+                {/*</Scene>*/}
 
                 <Scene key='main'>
-                    <Scene
-                        title='Employees'
-                        key='employeeList'
-                        component={EmployeeList}
-                        rightTitle='tap'
-                        onRight={() => Actions.employeeCreate()}
-                    />
+                    {/*<Scene*/}
+                    {/*title='Employees'*/}
+                    {/*key='employeeList'*/}
+                    {/*component={EmployeeList}*/}
+                    {/*rightTitle='Add'*/}
+                    {/*onRight={() => Actions.employeeCreate()}*/}
+                    {/*/>*/}
                     <Scene
                         title='Create Employee'
                         key='employeeCreate'
