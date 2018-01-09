@@ -1,4 +1,4 @@
-import { EMPLOYEE_UPDATE } from '../actions/types';
+import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE } from '../actions/types';
 
 const INITIAL_STATE = {
     name: '',
@@ -16,6 +16,10 @@ export default ( state = INITIAL_STATE, action ) => {
                 ...state,
                 [ action.payload.prop ]: action.payload.value
             };
+
+        case EMPLOYEE_CREATE:
+            // reset form
+            return INITIAL_STATE;
 
         default:
             return state;
