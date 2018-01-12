@@ -4,10 +4,12 @@ import _ from 'lodash';
 import Communications from 'react-native-communications';
 
 import { employeeSave, employeeUpdate } from "../actions";
-import { Button, Card, CardSection } from './common';
+import { Button, Card, CardSection, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeEdit extends Component {
+
+    state = { showModal: false };
 
     componentWillMount() {
         _.each(this.props.employee, ( value, prop ) => {
@@ -40,6 +42,18 @@ class EmployeeEdit extends Component {
                         Text Schedule
                     </Button>
                 </CardSection>
+
+                <CardSection>
+                    <Button onPress={() => {
+                        this.setState({ showModal: !this.state.showModal })
+                    }}>
+                        Fire Employee
+                    </Button>
+                </CardSection>
+
+                <Confirm visible={this.state.showModal}>
+                    Are you sure?
+                </Confirm>
             </Card>
         );
     }

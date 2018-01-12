@@ -52,7 +52,8 @@ class EmployeeForm extends Component {
 const styles = {
     shiftStyle: {
         fontSize: 18,
-        paddingLeft: 20
+        paddingLeft: 20,
+        marginBottom: 10
     }
 };
 
