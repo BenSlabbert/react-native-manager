@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import Communications from 'react-native-communications';
 
-import { employeeSave, employeeUpdate } from "../actions";
+import { employeeDelete, employeeSave, employeeUpdate } from "../actions";
 import { Button, Card, CardSection, Confirm } from './common';
 import EmployeeForm from './EmployeeForm';
 
@@ -25,6 +25,15 @@ class EmployeeEdit extends Component {
     onTextPress() {
         const { phone, shift } = this.props;
         Communications.text(phone, `Next shift: ${shift}`);
+    }
+
+    onAccept() {
+        const { uid } = this.props.employee;
+        this.props.employeeDelete({ uid });
+    }
+
+    onDecline() {
+        this.setState({ showModal: false })
     }
 
     render() {
@@ -51,7 +60,10 @@ class EmployeeEdit extends Component {
                     </Button>
                 </CardSection>
 
-                <Confirm visible={this.state.showModal}>
+                <Confirm
+                    onAccept={this.onAccept.bind(this)}
+                    onDecline={this.onDecline.bind(this)}
+                    visible={this.state.showModal}>
                     Are you sure?
                 </Confirm>
             </Card>
@@ -68,5 +80,5 @@ const mapStateToProps = ( state ) => {
 };
 
 export default connect(mapStateToProps, {
-    employeeUpdate, employeeSave
+    employeeUpdate, employeeSave, employeeDelete
 })(EmployeeEdit);
